@@ -1,0 +1,58 @@
+body{
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#0f172a,#020617);
+color:white;
+margin:0;
+text-align:center;
+}
+
+h1{margin:20px;}
+
+button{
+padding:12px 25px;
+background:#3b82f6;
+border:none;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+.container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+padding:20px;
+max-width:1200px;
+margin:auto;
+}
+
+.card{
+background:#1e293b;
+padding:15px;
+border-radius:12px;
+}
+
+.full{
+grid-column:1 / -1;
+}
+
+#workflowGraph{
+width:100%;
+height:600px;
+border-radius:10px;
+background:#020617;
+border:1px solid #334155;
+}
+
+.success{color:#22c55e;}
+.failed{color:#ef4444;}
+
+#logs{
+max-height:200px;
+overflow:auto;
+text-align:left;
+}
+
+#runs{
+width:100%;
+}
