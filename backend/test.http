@@ -1,0 +1,37 @@
+POST http://localhost:8080/api/projects
+Content-Type: application/json
+
+{
+  "name": "E-commerce System",
+  "description": "Handles order workflows"
+}
+###
+
+
+POST http://localhost:8080/api/workflows
+Content-Type: application/json
+
+{
+  "name": "Order Processing Workflow",
+  "definition": "{ \"steps\": [] }",
+  "project": {
+    "id": 1
+  }
+}
+###
+GET http://localhost:8080/api/workflows/project/1
+###
+POST http://localhost:8080/api/connectors
+Content-Type: application/json
+
+{
+  "name": "Payment API",
+  "type": "REST",
+  "configuration": "{ \"url\": \"https://api.payment.com\", \"method\": \"POST\" }",
+  "workflow": {
+    "id": 1
+  }
+}
+###
+
+GET http://localhost:8080/api/workflows
