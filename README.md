@@ -233,7 +233,3 @@ These are active areas of development, not abandoned features — see [Roadmap](
 - Mobile companion app for remote monitoring
 - Role-based access control (admin / operator / viewer)
 - Cloud and third-party service integrations
-
-## License
-
-Academic mini-project — Velammal Engineering College, Department of Computer Science and Engineering.
