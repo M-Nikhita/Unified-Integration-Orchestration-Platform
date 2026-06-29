@@ -62,6 +62,8 @@ landing.html → index.html (dashboard)
 
 The frontend calls the backend directly via the native `fetch()` API. The backend retrieves workflow steps and connector configuration, executes each step in order, records the outcome, and exposes the results back through REST endpoints that the dashboard polls and renders.
 
+The API has no authentication layer yet — all endpoints are open. Workflows, steps, and connectors are currently created via direct API calls (see [API Reference](#api-reference) and `backend/test.http`); a dedicated creation UI is planned (see [Roadmap](#roadmap)).
+
 ## Prerequisites
 
 - **Java 17** (JDK)
@@ -214,22 +216,16 @@ Content-Type: application/json
 
 More sample requests are available in [`backend/test.http`](backend/test.http) — works out of the box with the VS Code REST Client extension or JetBrains' built-in HTTP client.
 
-## Current Scope
-
-This is a working backend orchestration engine with a single-workflow monitoring dashboard, built as an academic mini-project. To set expectations clearly:
-
-- **Demonstrated end-to-end**: workflow execution, step-by-step logging, run history, DAG visualization, and stats — all live against real data, not mocked
-- **Backend is multi-workflow / multi-project capable** via the REST API (see [API Reference](#api-reference)), but the dashboard UI is currently wired to a single workflow (ID `1`)
-- **No authentication or role-based access yet** — anyone with API access can create or execute workflows
-- **No UI for creating workflows, steps, or connectors** — these are currently set up via direct API calls (see `backend/test.http`)
-- **Retry-on-failure logic is in progress** — the execution engine currently stops a run on the first failed step; configurable retry attempts are planned but not yet finalized
-
-These are active areas of development, not abandoned features — see [Roadmap](#roadmap) below.
-
 ## Roadmap
 
+- Configurable retry-on-failure for workflow steps
 - AI-based optimization of execution order and retry strategy
+- In-dashboard UI for creating and editing workflows, steps, and connectors
 - Real-time alerts (email/push) on workflow failure
 - Mobile companion app for remote monitoring
 - Role-based access control (admin / operator / viewer)
 - Cloud and third-party service integrations
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
